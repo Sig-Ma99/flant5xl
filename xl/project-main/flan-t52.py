@@ -6,7 +6,7 @@ import os
 # This one is flan-t5-large
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xl")
-model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-xl", device_map = "auto")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-xl")
 
 # Load model directly
 # from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
@@ -104,7 +104,7 @@ def output():
         results =[]
         for i in range(500):
             objects_labels = labels[i]
-            input_ids = tokenizer(finalprompt(objects_labels, com[0], com[1]), return_tensors="pt").input_ids.to("cuda")
+            input_ids = tokenizer(finalprompt(objects_labels, com[0], com[1]), return_tensors="pt").input_ids
             outputs = model.generate(input_ids, max_length=200)
             results.append({
                 # 'id': catIds[0],
