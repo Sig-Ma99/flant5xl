@@ -93,10 +93,12 @@ def finalprompt(concepts_name, p, g):
 
 
 def output():
+    combo = list()
     a = list()
     a.append(4)
     a.append(1)
-    for com in a:
+    combo.append(a)
+    for com in combo:
         results =[]
         for i in range(5000):
             objects_labels = labels[i]
