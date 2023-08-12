@@ -52,9 +52,9 @@ def generate_prompts(num_of_prompts, num_of_gtc):
     
     
     if num_of_prompts == 0:
-        return """We have following objects {0} in an image, \nA caption of this image could be:"""
+        return """Image Captioning is the process of generating textual description of an image.\nWe have following objects {0} in an image, \nA caption of this image could be:"""
     else:
-        prompt = f"""Here are {num_of_prompts} examples of a sentence that uses objects in an image to generate the caption:"""
+        prompt = f"""Image Captioning is the process of generating textual description of an image. \nHere are {num_of_prompts} examples of a sentence that uses objects in an image to generate the caption:"""
         for i in range(num_of_prompts):  
             fewshot_labels = fewshots[i]['labels']
             fewshot_captions = fewshots[i]['caption']
